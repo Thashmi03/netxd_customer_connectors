@@ -2,6 +2,8 @@ github.com/Thashmi03/netxd_customer v1.0.0 h1:+Bs8Gu4wAXrRWhs9ARXl2kELFMK356kuR0
 github.com/Thashmi03/netxd_customer v1.0.0/go.mod h1:/LeNYWpv1wdw/RPCHV89gbeLhLogMk11FJ5v6iaynqU=
 github.com/Thashmi03/netxd_dal v1.0.0 h1:9EyXnnyOmiBaoBN0CxufZ0+0aWcBLlWGQ5q+0FD4Q+Y=
 github.com/Thashmi03/netxd_dal v1.0.0/go.mod h1:4KCewbrXV2D8VA974PRcHE4GNmdgHGqjVzEB9u0nIAA=
+github.com/Thashmi03/netxd_transfer v0.0.0-20230831101629-6589b28bb6cc h1:07PIOfatm1aX1cu1oUAnTu5cKjbvuzcvKhwLscaup5U=
+github.com/Thashmi03/netxd_transfer v0.0.0-20230831101629-6589b28bb6cc/go.mod h1:2JSJ8hUyL1Uxaj1809m3HvztFXsZ5g4L0kzNmjQ1LO8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=

@@ -2,41 +2,37 @@ package netxdcustomercontroller
 
 import (
 	"context"
-	tmodel "github.com/Thashmi03/transfer_model"
-	tinterface "github.com/Thashmi03/transfer_interface"
-	
+	netxddalinterface "github.com/Thashmi03/netxd_dal/netxd_dal_interface"
+	netxddalmodels "github.com/Thashmi03/netxd_dal/netxd_dal_models"
 	t "github.com/Thashmi03/netxd_transfer"
 )
-type RPCServer struct{
+type RPServer struct{
 	t.UnimplementedCustomerServiceServer
 }
 
 var(
-	TransferService tinterface.Itransact
+	TransferService netxddalinterface.Itransact
 )
 
-func(s *RPCServer)Transfer(ctx context.Context,req * t.Details)(*t.DetailResponse,error){
+func(s *RPServer)Transfer(ctx context.Context,req * t.Details)(string,error){
 	// dbTransfer:=&tmodel.Transaction{
 	// 	Transaction_id: "00001",
 	// 	From_account:   317,
 	// 	To_account:     318,
 	// 	Amount:         100,
 	// }
-	dbTransfer:=&tmodel.Transaction{
+	dbTransfer:=&netxddalmodels.Transaction{
 		Transaction_id: "00001",
 		From_account:   317,
 		To_account:     318,
 		Amount:         100,
 	}
-	res,err:=TransferService.Transfer(dbTransfer)
+	_,err:=TransferService.Transfer(dbTransfer)
 	
 	if err != nil {
-		return nil, err
-	}else {
-		responseProfile := &t.DetailResponse{
-			Transaction_id: res.Transaction_id,
-		}
-		return responseProfile, nil
+		return "no", err
 	}
+	return "yes",nil
+	}
+	
 
-}

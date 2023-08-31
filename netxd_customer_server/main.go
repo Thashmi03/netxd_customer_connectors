@@ -12,6 +12,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
 	c "github.com/Thashmi03/netxd_customer"
+	t "github.com/Thashmi03/netxd_transfer"
+
 )
 
 
@@ -22,7 +24,8 @@ func intiDatabase(client *mongo.Client){
 }
 func intitransfer(client *mongo.Client){
 	transferCollection:=config.GetCollection(client,"BankDatabase","Transfer")
-	netxdcustomercontroller.CustomerService=netxddalservices.InitCustomerService(customerCollection,context.Background())
+	customerCollection:=config.GetCollection(client,"BankDatabase","Customer")
+	netxdcustomercontroller.TransferService=netxddalservices.InitTransaction(customerCollection,transferCollection,context.Background(),client)
 }
 
 func main(){
@@ -32,6 +35,7 @@ func main(){
 		panic(err)
 	}
 	intiDatabase(mongoclient)
+	intitransfer(mongoclient)
 	lis,err:=net.Listen("tcp", constants.Port)
 	if err != nil {
 		fmt.Printf("Failed to listen: %v", err)
@@ -39,7 +43,7 @@ func main(){
 	}
 	s:=grpc.NewServer()
 	c.RegisterCustomerServiceServer(s,&netxdcustomercontroller.RPCServer{})
-
+	t.reg
 	fmt.Println("sever listening on",constants.Port)
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("Failed to serve: %v", err)

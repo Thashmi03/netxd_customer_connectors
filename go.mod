@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/Thashmi03/netxd_customer v1.0.0
 	github.com/Thashmi03/netxd_dal v1.0.0
+	github.com/Thashmi03/netxd_transfer v0.0.0-20230831101629-6589b28bb6cc
 	go.mongodb.org/mongo-driver v1.12.1
 	google.golang.org/grpc v1.57.0
 )

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"banking_with_grpc/netxd_customer_connectors/config"
-	"banking_with_grpc/netxd_customer_connectors/constants"
-	netxdcustomercontroller "banking_with_grpc/netxd_customer_connectors/netxd_customer_controller"
-	netxddalservices "banking_with_grpc/netxd_dal/netxd_dal_services"
+	"github.com/Thashmi03/netxd_customer_connectors/config"
+	"github.com/Thashmi03/netxd_customer_connectors/constants"
+	"github.com/Thashmi03/netxd_customer_connectors/netxd_customer_controller"
+	"github.com/Thashmi03/netxd_dal/netxd_dal_services"
 	"context"
 	"fmt"
 	"net"

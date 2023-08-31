@@ -1,7 +1,7 @@
 package config
 
 import (
-	"banking_with_grpc/netxd_customer_connectors/constants"
+	"github.com/Thashmi03/netxd_customer_connectors/constants"
 	"context"
 
 	"log"

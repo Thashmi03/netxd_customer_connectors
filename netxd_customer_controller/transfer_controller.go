@@ -34,7 +34,7 @@ func(s *RPCServer)Transfer(ctx context.Context,req * t.Details)(*t.DetailRespons
 		return nil, err
 	}else {
 		responseProfile := &t.DetailResponse{
-			Transaction_id: res.CustomerId,
+			Transaction_id: res.Transaction_id,
 		}
 		return responseProfile, nil
 	}

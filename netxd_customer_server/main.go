@@ -1,23 +1,27 @@
 package main
 
 import (
-	// "github.com/Thashmi03/netxd_customer_connectors/config"
 	"context"
 	"fmt"
 	"net"
 
 	"github.com/Thashmi03/netxd_customer_connectors/config"
 	"github.com/Thashmi03/netxd_customer_connectors/constants"
-	"github.com/Thashmi03/netxd_customer_connectors/netxd_customer_controller"
-	"github.com/Thashmi03/netxd_dal/netxd_dal_services"
-
-	c "github.com/Thashmi03/netxd_customer"
+	netxdcustomercontroller "github.com/Thashmi03/netxd_customer_connectors/netxd_customer_controller"
+	netxddalservices "github.com/Thashmi03/netxd_dal/netxd_dal_services"
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
+	c "github.com/Thashmi03/netxd_customer"
 )
+
+
 
 func intiDatabase(client *mongo.Client){
 	customerCollection:=config.GetCollection(client,"BankDatabase","Customer")
+	netxdcustomercontroller.CustomerService=netxddalservices.InitCustomerService(customerCollection,context.Background())
+}
+func intitransfer(client *mongo.Client){
+	transferCollection:=config.GetCollection(client,"BankDatabase","Transfer")
 	netxdcustomercontroller.CustomerService=netxddalservices.InitCustomerService(customerCollection,context.Background())
 }
 

@@ -15,7 +15,7 @@ var(
 	TransferService netxddalinterface.Itransact
 )
 
-func(s *RPServer)Transfer(ctx context.Context,req * c.Request)(string,error){
+func(s *RPServer)Transfer(ctx context.Context,req * c.Request)(*c.Response,error){
 	// dbTransfer:=&tmodel.Transaction{
 	// 	Transaction_id: "00001",
 	// 	From_account:   317,
@@ -31,9 +31,11 @@ func(s *RPServer)Transfer(ctx context.Context,req * c.Request)(string,error){
 	_,err:=TransferService.Transfer(dbTransfer)
 	
 	if err != nil {
-		return "no", err
+		return nil, err
 	}
-	return "yes",nil
+	return &c.Response{
+		Message: "success",
+	},nil
 	}
 	
 

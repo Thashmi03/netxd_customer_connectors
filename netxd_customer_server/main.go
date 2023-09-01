@@ -9,6 +9,8 @@ import (
 	"github.com/Thashmi03/netxd_customer_connectors/constants"
 	netxdcustomercontroller "github.com/Thashmi03/netxd_customer_connectors/netxd_customer_controller"
 	netxddalservices "github.com/Thashmi03/netxd_dal/netxd_dal_services"
+	tcontroller "github.com/Thashmi03/netxd_customer_connectors/transfer_cotroller"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
 	c "github.com/Thashmi03/netxd_customer"
@@ -42,7 +44,7 @@ func main(){
 	}
 	s:=grpc.NewServer()
 	c.RegisterCustomerServiceServer(s,&netxdcustomercontroller.RPCServer{})
-	c.RegisterCustomerServiceServer(s,&)
+	c.RegisterCustomerServiceServer(s,&tcontroller.RPServer{})
 	fmt.Println("sever listening on",constants.Port)
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("Failed to serve: %v", err)

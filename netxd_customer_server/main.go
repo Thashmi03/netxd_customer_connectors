@@ -43,6 +43,7 @@ func main(){
 	s:=grpc.NewServer()
 	c.RegisterCustomerServiceServer(s,&netxdcustomercontroller.RPCServer{})
 	c.RegisterCustomerServiceServer(s,&netxdcustomercontroller.RPServer{})
+
 	fmt.Println("sever listening on",constants.Port)
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("Failed to serve: %v", err)

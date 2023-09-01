@@ -12,8 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
 	c "github.com/Thashmi03/netxd_customer"
-	t "github.com/Thashmi03/netxd_transfer"
-
+	
 )
 
 
@@ -43,7 +42,7 @@ func main(){
 	}
 	s:=grpc.NewServer()
 	c.RegisterCustomerServiceServer(s,&netxdcustomercontroller.RPCServer{})
-	t.reg
+	c.RegisterCustomerServiceServer(s,&)
 	fmt.Println("sever listening on",constants.Port)
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("Failed to serve: %v", err)
